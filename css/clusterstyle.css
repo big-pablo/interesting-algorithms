@@ -1,0 +1,13 @@
+canvas {
+    border: 30px double black;
+    display: table;
+    margin: 20px auto 20px;
+}
+p {
+    display: table;
+    margin: 20px auto 20px;
+}
+button{
+    display: table;
+    margin: 20px auto 20px;
+}
