@@ -8,3 +8,15 @@
     margin: 20px auto;
     background-color: rgb(30, 30, 30);
 }
+
+header {
+    width: 100%;
+    background: hsl(0, 0%, 75%);
+    height: 70px;
+}
+
+a{
+    font-size: 30px;
+    margin-left: 30px;
+    line-height: 60px;
+}

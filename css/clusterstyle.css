@@ -11,3 +11,16 @@ button{
     display: table;
     margin: 20px auto 20px;
 }
+
+header {
+    width: 100%;
+    background: hsl(0, 0%, 75%);
+    height: 70px;
+    text-align: center;
+}
+
+a{
+    font-size: 30px;
+    margin-left: 30px;
+    line-height: 60px;
+}
