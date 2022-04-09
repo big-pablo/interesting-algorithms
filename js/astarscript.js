@@ -111,7 +111,7 @@ function selectFinish()
 
 function generateMaze()
 {
-  var size = parseInt(document.getElementById("size").value); //todo: как-нибудь запоминать сайз, чтобы при изменении размера в input, всё не ломалось
+  var size = parseInt(document.getElementById("size").value); 
   var matrix = new Array(size); //Как я прочитал, в js нет двумерных массивов
   var visitedmatrix = new Array(size);
   for (let i = 0; i < size; i++)
