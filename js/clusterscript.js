@@ -18,6 +18,7 @@ function draw()
     {
       var xcoord = event.offsetX;
       var ycoord = event.offsetY;
+      ctx.fillStyle = "hsl(0, 0%, 0%)";
       ctx.beginPath();
       ctx.arc(xcoord,ycoord,10,0,360);
       ctx.fill(); 
@@ -101,16 +102,20 @@ function kmeans()
     var firstcoef = 0;
     for (let i = 0; i<clusters.length;i++)
     {
-        ctx.fillStyle ="hsl(" + (360-firstcoef) +",100%,50%)";
-        firstcoef += 30;
         console.log(clusters[i]);
         for (let k = 0; k<clusters[i].length;k++)
         {
+            ctx.fillStyle ="hsl(0, 0%, 0%)";
+            ctx.beginPath();
+            ctx.arc(clusters[i][k].x,clusters[i][k].y, 10, 0, 360);
+            ctx.fill();
+            ctx.fillStyle ="hsl(" + (360-firstcoef) +",100%,50%)";
             ctx.beginPath();
             ctx.arc(clusters[i][k].x,clusters[i][k].y, 9, 0, 360);
             ctx.fill();
         }
-    } 
+        firstcoef += 30;
+    }
 }
 
 function updateCentroids(clusters, centroids)
@@ -138,7 +143,6 @@ function updateCentroids(clusters, centroids)
             }
         }
         centroids.push(clusters[i][newcentroidindex]);
-        //clusters[i].splice(newcentroidindex,1);
     }
 }
 

@@ -2,19 +2,11 @@
     text-align: center;
 }
 
-canvas {
+#canvas {
     width: 1000px;
     height: 1000px;
     margin: 20px auto;
     background-color: rgb(30, 30, 30);
-}
-p {
-    display: table;
-    margin: 20px auto 20px;
-}
-button{
-    display: table;
-    margin: 20px auto 20px;
 }
 
 header {
