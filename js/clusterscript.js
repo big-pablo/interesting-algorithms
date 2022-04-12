@@ -18,7 +18,7 @@ function draw()
     {
       var xcoord = event.offsetX;
       var ycoord = event.offsetY;
-      ctx.fillStyle = "hsl(0, 0%, 0%)";
+      ctx.fillStyle = "hsl(0, 5%, 65%)";
       ctx.beginPath();
       ctx.arc(xcoord,ycoord,10,0,360);
       ctx.fill(); 
@@ -105,7 +105,7 @@ function kmeans()
         console.log(clusters[i]);
         for (let k = 0; k<clusters[i].length;k++)
         {
-            ctx.fillStyle ="hsl(0, 0%, 0%)";
+            ctx.fillStyle ="hsl(0, 5%, 65%)";
             ctx.beginPath();
             ctx.arc(clusters[i][k].x,clusters[i][k].y, 10, 0, 360);
             ctx.fill();
