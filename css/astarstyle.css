@@ -18,6 +18,30 @@ body{
     border-radius: 5px;
 }
 
+.action-button-start {
+    color: aliceblue;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 1px 7px 2px;
+    margin: 0em;
+    font: 400 15px Helvetica;
+    background-color: black;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.action-button-finish {
+    color: aliceblue;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 1px 7px 2px;
+    margin: 0em;
+    font: 400 15px Helvetica;
+    background-color: black;
+    border-color: black;
+    border-radius: 5px;
+}
+
 .header-button {
     color: aliceblue;
     font-weight: 700;
@@ -39,6 +63,36 @@ body{
     color:aliceblue;
 }
 
+.action-button:hover {
+    animation: 1s text-color-change;
+    color:gold;
+  }
+
+.action-button {
+    animation: 1s change-color-back;
+    color:aliceblue;
+}
+
+.action-button-start:hover {
+    animation: 1s text-color-change-start;
+    color:gold;
+  }
+
+.action-button-start {
+    animation: 1s change-color-back-start;
+    color:aliceblue;
+}
+
+.action-button-finish:hover {
+    animation: 1s text-color-change-finish;
+    color:gold;
+  }
+
+.action-button-finish {
+    animation: 1s change-color-back-finish;
+    color:aliceblue;
+}
+
 @keyframes text-color-change {
     from {
         color: aliceblue;
@@ -52,6 +106,46 @@ body{
 @keyframes change-color-back {
     from {
         color: gold;
+    }
+  
+    to {
+        color:aliceblue;
+    }
+}
+
+@keyframes text-color-change-start {
+    from {
+        color: aliceblue;
+    }
+  
+    to {
+        color:green;
+    }
+}
+
+@keyframes change-color-back-start {
+    from {
+        color: green;
+    }
+  
+    to {
+        color:aliceblue;
+    }
+}
+
+@keyframes text-color-change-finish {
+    from {
+        color: aliceblue;
+    }
+  
+    to {
+        color:red;
+    }
+}
+
+@keyframes change-color-back-finish {
+    from {
+        color: red;
     }
   
     to {
@@ -166,12 +260,4 @@ table {
 .impass:active {
     background-color: hsl(0, 0%, 30%);
     cursor: pointer;
-}
-
-#selectstart {
-    color: hsl(140, 100%, 30%);
-}
-
-#selectfinish {
-    color: hsl(350, 80%, 50%);
 }
