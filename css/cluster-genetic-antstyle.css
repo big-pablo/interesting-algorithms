@@ -1,0 +1,98 @@
+* {
+    text-align: center;
+}
+
+body{
+    background-image: url(background-pic.jpg);
+}
+
+.action-button {
+    color: aliceblue;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 1px 7px 2px;
+    margin: 0em;
+    font: 400 15px Helvetica;
+    background-color: black;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.header-button {
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Helvetica;
+    background-color: none;
+    border-color: none;
+}
+
+.header-button:hover {
+    animation: 1s text-color-change;
+    color:gold;
+  }
+
+.header-button {
+    animation: 1s change-color-back;
+    color:aliceblue;
+}
+
+.action-button:hover {
+    animation: 1s text-color-change;
+    color:gold;
+  }
+
+.action-button {
+    animation: 1s change-color-back;
+    color:aliceblue;
+}
+
+@keyframes text-color-change {
+    from {
+        color: aliceblue;
+    }
+  
+    to {
+        color:gold;
+    }
+}
+
+@keyframes change-color-back {
+    from {
+        color: gold;
+    }
+  
+    to {
+        color:aliceblue;
+    }
+}
+
+h2 {
+    width: 100%;
+    height: 20px;
+    color:aliceblue;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+p {
+    color: aliceblue;
+    width: 100%;
+    height: 20px;
+    font-family: Helvetica;
+}
+
+#canvas {
+    width: 1000px;
+    height: 1000px;
+    margin: 20px auto;
+    background-color: rgb(30, 30, 30);
+}
+
+a{
+    font-size: 30px;
+    margin-left: 30px;
+    line-height: 60px;
+}
