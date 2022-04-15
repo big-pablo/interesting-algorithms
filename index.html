@@ -8,19 +8,19 @@
   </head>
   <body>
     <header>
-			<a href="index.html">Алгоритм А*</a>
-			<a href="clusterhtml.html">Кластеризация</a>
-			<a href="genetichtml.html">Генетический Алгоритм</a>
-			<a href="anthtml.html">Муравьиный Алгоритм</a>
+			<a class="header-button" href="index.html">Алгоритм А*</a>
+			<a class="header-button" href="clusterhtml.html">Кластеризация</a>
+			<a class="header-button" href="genetichtml.html">Генетический Алгоритм</a>
+			<a class="header-button" href="anthtml.html">Муравьиный Алгоритм</a>
 		  </header>
-    <h2>Алгоритм A*</h2>
-    <p>Введите размер матрицы</p>
-    <input type="text" id="size">
-    <button class="action-button" id="confirm" onclick="generate()">Подтвердить</button>
+    <h2 class="header-style">Алгоритм A*</h2>
+    <p class="subheader-style">Введите размер матрицы</p>
+    <p><input type="text" id="size"></p>
+    <p><button class="action-button" id="confirm" onclick="generate()">Подтвердить</button>
     <button class="action-button" id="reset" onclick="window.location.reload()">Сбросить</button>
     <button class="action-button" id="generatemaze" onclick="generateMaze()">Генерировать лабиринт</button>
     <button class="action-button" id="selectstart" onclick="selectStart()">Выбрать начало</button>
     <button class="action-button" id="selectfinish" onclick="selectFinish()">Выбрать конец</button>
-    <button class="action-button" id="findpath" onclick="findPath()">A*</button>
+    <button class="action-button" id="findpath" onclick="findPath()">A*</button></p>
   </body>
 </html>
