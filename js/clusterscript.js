@@ -6,7 +6,6 @@ class Point {
         this.x = options.x;
         this.y = options.y;
         this.num = options.num;
-        this.disttocentroid = options.disttocentroid;
     }
 }
 function draw()
@@ -57,7 +56,7 @@ function kmeans()
     }
     for (var i = 0; i<clonepoints.length;i++)
     {
-        var mindist = 1500; //Здесь 1500 потому что канвас 1000х1000
+        var mindist = 3000; //Здесь 1500 потому что канвас 1000х1000
         current = clonepoints[i];
         for (var k = 0; k<centroids.length;k++)
         {
@@ -69,9 +68,7 @@ function kmeans()
         }
         clusters[whereto].push(clonepoints[i]);
     } 
-    //updateCentroids(clusters, centroids)
-    
-    for (let f = 0; f<100; f++)
+    for (let f = 0; f<1000; f++)
     {
        updateCentroids(clusters,centroids); //Обновляю центроиды
        clusters.splice(0,clusters.length);  //Очищаю кластеры
@@ -128,17 +125,17 @@ function updateCentroids(clusters, centroids)
         var sumdisty = 0;
         for (let k = 0; k < clusters[i].length;k++)
         {
-            sumdistx += clusters[i][1];
-            sumdisty += clusters[i][2];
+            sumdistx += clusters[i][k].x;
+            sumdisty += clusters[i][k].y;
         }
         midx = sumdistx / clusters[i].length;
         midy = sumdisty / clusters[i].length;
-        var mindistance = 1500;
+        var mindistance = 3000;
         for (let k = 0; k<clusters[i].length;k++)
         {
             if (distance(clusters[i][k].x, midx, clusters[i][k].y, midy) < mindistance)
             {
-                mindistance = distance(clusters[i][k].x, midx, clusters[k][k].y, midy);
+                mindistance = distance(clusters[i][k].x, midx, clusters[i][k].y, midy);
                 newcentroidindex = k; 
             }
         }

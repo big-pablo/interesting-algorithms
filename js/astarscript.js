@@ -199,6 +199,10 @@ function findPath()
       {
         var finish = map[i][j];
       }
+      if (map[i][j].element.classList.contains("path"))
+      {
+        map[i][j].element.classList.remove("path");
+      }
     }
   }
   border = new PriorityQueue();
@@ -241,7 +245,7 @@ function findPath()
       {
         successors.push(map[current.x][current.y - 1]);
       }
-      if (isInside(current.x - 1, current.y + 1, size)) // NE (i - 1, j + 1)
+    /*  if (isInside(current.x - 1, current.y + 1, size)) // NE (i - 1, j + 1)
       {
         successors.push(map[current.x - 1][current.y + 1]);
       }
@@ -256,7 +260,7 @@ function findPath()
       if (isInside(current.x + 1, current.y - 1, size)) // SW (i + 1, j - 1)
       {
         successors.push(map[current.x + 1][current.y - 1]);
-      }
+      } */
       successors.forEach(successor => {
         if (!successor.isVisited && successor.element.classList.contains("pass"))
         {

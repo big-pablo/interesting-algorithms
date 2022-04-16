@@ -260,19 +260,13 @@ function nextGeneration()
                 var j = randomInt(0, pool.length - 1);
             }
             while (i == j);
-            //console.log('pool: ' + pool);
-            //console.log('i: ' + i + ', j: ' + j);
             var parent1 = pool.splice(i, 1)[0];
             var parent2 = pool.splice(i < j ? j - 1 : j, 1)[0];
-            //console.log('parents: ' + parent1 + ' ' + parent2);
             var children = cross(parent1, parent2);
-            //console.log(children);
             children[0] = mutate(children[0]);
             children[1] = mutate(children[1]);
             population.push(children[0]);
             population.push(children[1]);
-            //console.log('child1: ' + children[0]);
-            //console.log('child2: ' + children[1]);
         }
         population = rank(population);
         population.splice(length, population.length - length);
@@ -293,42 +287,3 @@ function randomInt(min, max)
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-/*
-function geneticAlgorithm()
-{
-    for (let i = 0; i < p.length; i++)
-    {
-        d[i] = [];
-        for (let j = 0; j < p.length; j++)
-        {
-            d[i][j] = distance(p[i], p[j]);
-        }
-    }
-    var population = generateInitialPopulation(p.length - 1);
-    population = rank(population);
-    population.forEach(e => console.log(e, pathLength(e)));
-    console.log(population);
-    drawPath(population[0]);
-    //console.log(cross(initPopulation[0], initPopulation[1]));
-    console.log(mutate(population[0]));
-    var length = population.length;
-    for (let generation = 0; generation < max_generations; generation++)
-    {
-        var pool = select(population);
-        while (pool.length > 0)
-        {
-            var i = randomInt(0, pool.length - 1);
-            do
-            {
-                var j = randomInt(0, pool.length - 1);
-            }
-            while (i == j);
-            population.concat(cross(pool.splice(i, 1), pool.splice(j, 1)).forEach(child => mutate(child)));
-        }
-        population = rank(population);
-        population.splice(length, population.length - length);
-    }
-    return population[0];
-}
-*/
