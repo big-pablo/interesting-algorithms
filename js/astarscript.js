@@ -111,7 +111,7 @@ function selectFinish()
 
 function generateMaze()
 {
-  var size = parseInt(document.getElementById("size").value); 
+  var size = parseInt(document.getElementById("size").value);
   var matrix = new Array(size); //Как я прочитал, в js нет двумерных массивов
   var visitedmatrix = new Array(size);
   for (let i = 0; i < size; i++)
@@ -187,7 +187,7 @@ function findPath()
   var map = new Array(size);
   for (let i = 0; i < size; i++)
   {
-    map[i] = new Array(size); //Поэтому я делаю массив массивов
+    map[i] = new Array(size);
     for (let j = 0; j < size; j++)
     {
       map[i][j] = new Cell(document.getElementById(i + " " + j), i, j);
@@ -198,6 +198,10 @@ function findPath()
       else if (map[i][j].element.classList.contains("finish"))
       {
         var finish = map[i][j];
+      }
+      if (map[i][j].element.classList.contains("path"))
+      {
+        map[i][j].element.classList.remove("path");
       }
     }
   }
@@ -222,52 +226,55 @@ function findPath()
       }
     }
     current.isVisited = true;
-    var successors = [];
-    if (isInside(current.x - 1, current.y, size)) // N (i - 1, j)
+    if (!pathFound)
     {
-      successors.push(map[current.x - 1][current.y]);
-    }
-    if (isInside(current.x + 1, current.y, size)) // S (i + 1, j)
-    {
-      successors.push(map[current.x + 1][current.y]);
-    }
-    if (isInside(current.x, current.y + 1, size)) // E (i, j + 1)
-    {
-      successors.push(map[current.x][current.y + 1]);
-    }
-    if (isInside(current.x, current.y - 1, size)) // W (i, j - 1)
-    {
-      successors.push(map[current.x][current.y - 1]);
-    }
-    if (isInside(current.x - 1, current.y + 1, size)) // NE (i - 1, j + 1)
-    {
-      successors.push(map[current.x - 1][current.y + 1]);
-    }
-    if (isInside(current.x - 1, current.y - 1, size)) // NW (i - 1, j - 1)
-    {
-      successors.push(map[current.x - 1][current.y - 1]);
-    }
-    if (isInside(current.x + 1, current.y + 1, size)) // SE (i + 1, j + 1)
-    {
-      successors.push(map[current.x + 1][current.y + 1]);
-    }
-    if (isInside(current.x + 1, current.y - 1, size)) // SW (i + 1, j - 1)
-    {
-      successors.push(map[current.x + 1][current.y - 1]);
-    }
-    successors.forEach(successor => {
-      if (!successor.isVisited && successor.element.classList.contains("pass"))
+      var successors = [];
+      if (isInside(current.x - 1, current.y, size)) // N (i - 1, j)
       {
-        successor.g = current.g + 1;
-        successor.h = h(successor.x, successor.y, finish.x, finish.y);
-        successor.f = successor.g + successor.h;
-        if (!border.data.includes(successor))
-        {
-          border.data.push(successor);
-          successor.parent = current;
-        }
+        successors.push(map[current.x - 1][current.y]);
       }
-    })
+      if (isInside(current.x + 1, current.y, size)) // S (i + 1, j)
+      {
+        successors.push(map[current.x + 1][current.y]);
+      }
+      if (isInside(current.x, current.y + 1, size)) // E (i, j + 1)
+      {
+        successors.push(map[current.x][current.y + 1]);
+      }
+      if (isInside(current.x, current.y - 1, size)) // W (i, j - 1)
+      {
+        successors.push(map[current.x][current.y - 1]);
+      }
+    /*  if (isInside(current.x - 1, current.y + 1, size)) // NE (i - 1, j + 1)
+      {
+        successors.push(map[current.x - 1][current.y + 1]);
+      }
+      if (isInside(current.x - 1, current.y - 1, size)) // NW (i - 1, j - 1)
+      {
+        successors.push(map[current.x - 1][current.y - 1]);
+      }
+      if (isInside(current.x + 1, current.y + 1, size)) // SE (i + 1, j + 1)
+      {
+        successors.push(map[current.x + 1][current.y + 1]);
+      }
+      if (isInside(current.x + 1, current.y - 1, size)) // SW (i + 1, j - 1)
+      {
+        successors.push(map[current.x + 1][current.y - 1]);
+      } */
+      successors.forEach(successor => {
+        if (!successor.isVisited && successor.element.classList.contains("pass"))
+        {
+          successor.g = current.g + 1;
+          successor.h = h(successor.x, successor.y, finish.x, finish.y);
+          successor.f = successor.g + successor.h;
+          if (!border.data.includes(successor))
+          {
+            border.data.push(successor);
+            successor.parent = current;
+          }
+        }
+      })
+    }
   }
   if (!pathFound)
   {
@@ -321,14 +328,6 @@ class PriorityQueue
   isEmpty()
   {
     return this.data.length === 0;
-  } 
-  size()
-  {
-    return this.data.length;
-  }
-  clear()
-  {
-    this.data.length = 0;
   }
 }
 
